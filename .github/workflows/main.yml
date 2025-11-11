@@ -1,0 +1,17 @@
+name: Simple Echo
+
+# Trigger the workflow on push to any branch
+on:
+  push:
+
+jobs:
+  run-echo:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository (optional if not needed)
+      - uses: actions/checkout@v4
+
+      # Step 2: Run the echo command
+      - name: Say Hello
+        run: echo "Hello, GitHub Actions on Ubuntu!"
