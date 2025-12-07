@@ -27,3 +27,11 @@ jobs:
       - name: Deploy
         run: |
           echo "Deploying..."
+
+  job4:
+    runs-on: ubuntu-latest
+    needs: [ job1, job2, job3 ]   # run after build + test succeed
+    steps:
+      - name: Done
+        run: |
+          echo "Done..."
