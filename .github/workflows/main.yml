@@ -40,7 +40,24 @@ jobs:
   job4:
     runs-on: ubuntu-latest
     needs: [ job3 ]   # run after build + test succeed
+    if: always()
     steps:
       - name: Done
         run: |
           echo "Done..."
+  job5:
+    runs-on: ubuntu-latest
+    needs: [ job4 ]   # run after build + test succeed
+    if: always()
+    steps:
+      - name: Done1
+        run: |
+          echo "Done1..."
+  job6:
+    runs-on: ubuntu-latest
+    needs: [ job5 ]   # run after build + test succeed
+    if: always()
+    steps:
+      - name: Done2
+        run: |
+          echo "Done2..."
