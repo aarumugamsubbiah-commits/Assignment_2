@@ -8,8 +8,8 @@ on:
         required: true
         type: choice
         options:
-          - yes
-          - no
+          - "yes"
+          - "no"
 jobs:
   job1:
     runs-on: ubuntu-latest
