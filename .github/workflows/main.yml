@@ -61,7 +61,6 @@ jobs:
 
   job7:
     runs-on: ubuntu-latest
-    needs: [ job1,job2,job3,job4,job5,job6 ]   # run after build + test succeed
     if: always() && ${{ 
      (needs.job1.result == 'success' || needs.job1.result == 'skipped') &&
      (needs.job2.result == 'success' || needs.job2.result == 'skipped') &&
@@ -70,6 +69,8 @@ jobs:
      (needs.job5.result == 'success' || needs.job5.result == 'skipped') &&
      (needs.job6.result == 'success' || needs.job6.result == 'skipped')
       }}
+    needs: [ job1,job2,job3,job4,job5,job6 ]   # run after build + test succeed
+
     steps:
       - name: Done7
         run: |
