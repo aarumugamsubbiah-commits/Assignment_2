@@ -41,6 +41,7 @@ jobs:
       - name: Done2
         run: |
           echo "Done2..."
+          exit 1
 
   job2:
     runs-on: ubuntu-latest
