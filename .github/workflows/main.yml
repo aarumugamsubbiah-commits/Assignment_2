@@ -67,7 +67,7 @@ jobs:
       needs.job3.result != 'failure' &&
       needs.job4.result != 'failure' &&
       needs.job5.result != 'failure' &&
-      needs.job6.result != 'failure' &&
+      needs.job6.result != 'failure'
       }}
     steps:
       - name: Done7
