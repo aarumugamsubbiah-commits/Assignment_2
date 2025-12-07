@@ -63,8 +63,7 @@ jobs:
          
   job7:
     runs-on: ubuntu-latest
-    needs: [ job1,job4,job5,job6, job2, job3 ]   # run after build + test succeed
-    if: always()
+    needs: [ job1,job4,job5,job6]   # run after build + test succeed
     steps:
       - name: Done7
         run: |
@@ -72,8 +71,7 @@ jobs:
   job8:
     runs-on: ubuntu-latest
     if: always()
-    needs:  [ job7 ]   # run after build + test succeed
-
+    needs:  [ job7, job2, job3 ]   # run after build + test succeed
     steps:
       - name: Done8
         run: |
