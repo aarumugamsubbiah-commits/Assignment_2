@@ -26,6 +26,7 @@ jobs:
       - name: Done
         run: |
           echo "Done..."
+          echo "${{ needs.job1.result }}"
   job5:
     runs-on: ubuntu-latest
     needs: [ job4 ]   # run after build + test succeed
