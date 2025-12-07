@@ -59,20 +59,22 @@ jobs:
         run: |
           echo "Deploying..."
 
+         
   job7:
     runs-on: ubuntu-latest
-    if: always() && ${{ 
-     (needs.job1.result == 'success' || needs.job1.result == 'skipped') &&
-     (needs.job2.result == 'success' || needs.job2.result == 'skipped') &&
-     (needs.job3.result == 'success' || needs.job3.result == 'skipped') &&
-     (needs.job4.result == 'success' || needs.job4.result == 'skipped') &&
-     (needs.job5.result == 'success' || needs.job5.result == 'skipped') &&
-     (needs.job6.result == 'success' || needs.job6.result == 'skipped')
-      }}
-    needs: [ job1,job2,job3,job4,job5,job6 ]   # run after build + test succeed
+    needs: [ job1,job4,job5,job6 ]   # run after build + test succeed
 
     steps:
       - name: Done7
         run: |
           echo "Done7..."
+  job8:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ job7 ]   # run after build + test succeed
+
+    steps:
+      - name: Done8
+        run: |
+          echo "Done8..."
           
