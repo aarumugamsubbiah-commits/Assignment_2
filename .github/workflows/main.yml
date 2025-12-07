@@ -61,7 +61,7 @@ jobs:
   job7:
     runs-on: ubuntu-latest
     needs: [ job1,job2,job3,job4,job5,job6 ]   # run after build + test succeed
-    if: always()
+    if: ${{ needs.job6.result != 'failure' }} 
     steps:
       - name: Done7
         run: |
