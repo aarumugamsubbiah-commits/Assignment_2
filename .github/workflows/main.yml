@@ -71,7 +71,7 @@ jobs:
   job8:
     runs-on: ubuntu-latest
     if: always()
-    needs: [ job7 ]   # run after build + test succeed
+    needs: [ job2, job3, job7 ]   # run after build + test succeed
 
     steps:
       - name: Done8
