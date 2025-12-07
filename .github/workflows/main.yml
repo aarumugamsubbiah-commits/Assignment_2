@@ -57,6 +57,7 @@ jobs:
       - name: Deploy
         run: |
           echo "Deploying..."
+          exit 1
   job7:
     runs-on: ubuntu-latest
     needs: [ job1,job2,job3,job4,job5,job6 ]   # run after build + test succeed
