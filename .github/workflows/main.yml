@@ -34,6 +34,7 @@ jobs:
       - name: Done1
         run: |
           echo "Done1..."
+          exit 1
   job6:
     runs-on: ubuntu-latest
     needs: [ job5 ]   # run after build + test succeed
@@ -41,7 +42,6 @@ jobs:
       - name: Done2
         run: |
           echo "Done2..."
-          exit 1
 
   job2:
     runs-on: ubuntu-latest
