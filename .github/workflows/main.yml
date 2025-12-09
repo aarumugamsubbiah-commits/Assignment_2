@@ -68,7 +68,11 @@ jobs:
       needs.job4.result != 'failure' &&
       needs.job5.result != 'failure' &&
       needs.job6.result != 'failure' &&
-      (github.event.inputs.run_tests == 'yes' && needs.job3.result != 'failure') ) }}
+      (
+        github.event.inputs.run_tests == 'no' ||
+        (github.event.inputs.run_tests == 'yes' && needs.job3.result != 'failure') 
+      ) 
+      }}
     needs: [ job1,job4,job5,job6,job3]   # run after build + test succeed
     steps:
       - name: Done7
