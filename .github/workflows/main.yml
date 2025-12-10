@@ -12,8 +12,7 @@ on:
           - "no"
 
 env:
-  GITHUB_WORKSPACE: ${{ GITHUB_WORKSPACE }}
-  
+  GITHUB_WORKSPACE: "/_work"
 jobs:
   job1:
     runs-on: ubuntu-latest
