@@ -10,8 +10,7 @@ on:
         options:
           - "yes"
           - "no"
-env:
-  GITHUB_WORKSPACE: ${{ GITHUB_WORKSPACE}}
+
 jobs:
   job1:
     runs-on: ubuntu-latest
