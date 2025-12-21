@@ -11,17 +11,12 @@ on:
           - "yes"
           - "no"
 
-jobs:
-  job0:
+jobs:        
+  job1:
     runs-on: ubuntu-latest
     steps:
       - name: Override Githubworkspace
         run: echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE/test" >> $GITHUB_ENV
-        
-  job1:
-    runs-on: ubuntu-latest
-    needs: [ job0 ]
-    steps:
       - name: Build
         run: |
           echo ${GITHUB_WORKSPACE} $GITHUB_WORKSPACE
@@ -35,6 +30,7 @@ jobs:
       - name: Done
         run: |
           echo "Done..."
+          echo ${GITHUB_WORKSPACE} $GITHUB_WORKSPACE
           echo "${{ needs.job1.result }}"
   job5:
     runs-on: ubuntu-latest
