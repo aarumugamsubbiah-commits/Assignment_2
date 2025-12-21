@@ -11,7 +11,7 @@ on:
           - "yes"
           - "no"
 env:
-  REPO_WORKPSPACE: ${{ github.workspace }}/${{ github.run_id}}
+  REPO_WORKSPACE: ${{ github.workspace }}/${{ github.run_id}}
 jobs:        
   job1:
     runs-on: ubuntu-latest
