@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Build
         run: |
-          echo ${GITHUB_WORKSPACE}
+          echo ${GITHUB_WORKSPACE} $GITHUB_WORKSPACE
           echo "Building..."
           echo "Build output"
 
