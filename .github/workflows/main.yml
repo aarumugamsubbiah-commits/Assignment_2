@@ -10,7 +10,8 @@ on:
         options:
           - "yes"
           - "no"
-
+env:
+  REPO_WORKPSPACE: ${{ github.workspace }}/${{ github.run_id}}
 jobs:        
   job1:
     runs-on: ubuntu-latest
@@ -18,11 +19,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with:
-          path: test
+          path: ${{ github.run_id }}
           
       - name: Build
         run: |
-          echo ${GITHUB_WORKSPACE} $GITHUB_WORKSPACE
+          echo ${GITHUB_WORKSPACE} $REPO_WORKSPACE
           echo "Building..."
           echo "Build output"
 
@@ -33,7 +34,7 @@ jobs:
       - name: Done
         run: |
           echo "Done..."
-          echo ${GITHUB_WORKSPACE} $GITHUB_WORKSPACE
+          echo ${GITHUB_WORKSPACE} $REPO_WORKSPACE
           echo "${{ needs.job1.result }}"
   job5:
     runs-on: ubuntu-latest
